@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Invitación de Cumpleaños!</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
+    <style>
+        /* Fondo animado con capibaras */
+        body {
+            background-color: #ffccf2;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: #d63384;
+            overflow-x: hidden;
+            position: relative;
+            margin: 0;
+            height: 100vh;
+        }
+
+        /* Contenedor del fondo animado */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.imgur.com/RH5QHOX.png'), 
+                              url('https://i.imgur.com/6bG9LsH.png');
+            background-size: 150px, 200px;
+            background-repeat: repeat;
+            animation: moveBackground 10s linear infinite;
+            opacity: 0.2; /* Hace que el fondo sea sutil */
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0, 100px 100px; }
+            100% { background-position: 100px 100px, 0 0; }
+        }
+
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Transparente para que se vea el fondo */
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            color: #ff69b4;
+        }
+
+        .capibara {
+            width: 200px;
+            animation: float 0.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #e60073;
+        }
+
+        input, label {
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body onload="lanzarConfeti()">
+
+    <div class="background"></div>
+
+    <div class="container">
+        <h1>¡Hola soy Elena!</h1>
+        <h2>¡Te invito a mi cumple!</h2>
+        <!-- Imagen de capibara -->
+        <img src="imagenes/capi5.jpg" alt="Capibara animado" class="capibara">
+        <p>
+            📅 <b>Fecha:</b> 14 de Marzo<br>
+            ⏰ <b>Hora:</b> 18:00 a 20:30<br>
+            📍 <b>Lugar:</b> Salón V&P Multieventos<br>
+            📌 <b>Dirección:</b> Ameghino 714, Pergamino
+        </p>
+        <p>¡Te espero para celebrar juntos!</p>
+
+      <!-- Formulario para confirmar asistencia -->
+<form action="https://your-server-side-script-url.com" method="POST">
+    <!-- Asunto del correo -->
+    <input type="hidden" name="_subject" value="Confirmación de Asistencia">
+    
+    <!-- Campo para confirmar asistencia -->
+    <input type="hidden" name="asistencia" value="Confirmada">
+    <input type="hidden" name="_next" value="https://tu-sitio-web.com/gracias.html">
+    
+    <!-- Botón para confirmar -->
+    <button type="submit">Confirmar Asistencia</button>
+</form>
+    </div>
+
+   <!-- Audio de fondo -->
+<audio autoplay loop>
+    <source src="https://example.com/path/to/capibara-song.mp3" type="audio/mp3">
+    Tu navegador no soporta la reproducción de audio.
+</audio>
+    <script>
+        function lanzarConfeti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+    </script>
+
+</body>
+</html>
